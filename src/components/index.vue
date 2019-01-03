@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Ingredient from "./subcomponents/ingredient";
+import Ingredient from "./subcomponents/mainContent";
 export default {
   name: 'HelloWorld',
   components: {Ingredient},
