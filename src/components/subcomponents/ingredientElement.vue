@@ -5,8 +5,29 @@
 </template>
 
 <script>
+
+
   export default {
-    name: "ingredientElement"
+    // 컴포넌트 내용 정의
+    name: "ingredientElement",
+    amount: "amount",
+    expdate: "expdate",
+
+    methods: {
+      edit(data) {
+        return data;
+      },
+      confirm() {
+        return;
+      },
+      delete() {
+        return;
+      }
+
+    },
+    data: function() {
+          return data;
+    }
   }
 </script>
 
