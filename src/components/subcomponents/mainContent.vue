@@ -1,38 +1,41 @@
 <template>
-  <div id="ingredient">
-    <div class="ingredient-item">
-      123
-    </div>
-    <div class="ingredient-item">
-      123
-    </div>
-    <div class="ingredient-item">
-      123
-    </div>
-    <div class="ingredient-item">
-      123
+  <div class="main-contents">
+    <div class="ingredient-wrap">
+      <ingredient-element/>
+      <ingredient-element/>
+      <ingredient-element/>
+      <ingredient-element/>
+      <ingredient-element/>
+      <ingredient-element/>
+      <ingredient-element/>
     </div>
   </div>
 </template>
 
 <script>
+  import IngredientElement from "./ingredientElement";
   export default {
-    name: "mainContent"
+    name: "mainContent",
+    components: {IngredientElement}
   }
 </script>
 
 <style scoped>
-  #ingredient {
+
+  .main-contents {
+    flex: 1 1 calc(100% - 220px);
+    padding: 10px;
+    height: calc(100vh - 62px);
+  }
+  @media screen and (max-width: 480px) {
+    .main-contents {
+      flex: 1 1 100%;
+    }
+  }
+  .ingredient-wrap{
     display: flex;
     flex-wrap: wrap;
-    padding: 10px;
   }
 
-  .ingredient-item {
-    flex: 0 1 calc(100% / 3 - 20px);
-    border: 1px solid #e9e9e9;
-    margin: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
-  }
 
 </style>
