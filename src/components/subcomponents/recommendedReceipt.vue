@@ -4,7 +4,20 @@
 
 <script>
   export default {
-    name: "recommendedReceipt"
+    name: "recommendedReceipt",
+    data() {
+      return {
+        items: [
+          { menu : 'menu' },
+          { recipe : 'recipe' }
+        ]
+      }
+    },
+    methods: {
+      requestReceiptList() {
+
+      }
+    }
   }
 </script>
 

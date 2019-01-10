@@ -4,7 +4,10 @@
 
 <script>
   export default {
-    name: "receiptElement"
+    name: "receiptElement",
+    data() {
+      return {}
+    }
   }
 </script>
 

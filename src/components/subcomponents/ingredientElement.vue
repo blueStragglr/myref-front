@@ -1,13 +1,37 @@
 <template>
     <div class="ingredient-item">
       123
+      <div v-for="item in items">
+        {{ item.message }}
+      </div>
     </div>
 </template>
 
 <script>
   export default {
-    name: "ingredientElement"
+    name: "ingredientElement",
+    data() {
+      return {
+        items: [
+          { name: 'a' },
+          { amount: 'b' },
+          { expiaryDate: 'c' }
+        ]
+      }
+    },
+    methods: {
+      edit() {
+
+      },
+      editConfirm() {
+
+      },
+      delete() {
+
+      }
+    }
   }
+
 </script>
 
 <style scoped>
