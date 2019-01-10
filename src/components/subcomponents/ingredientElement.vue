@@ -1,25 +1,44 @@
 <template>    
     <div class="ingredient-item">
       
-      <img v-bind:src=imagePath />
-      <h2>{{message}}</h2>
-      <br>1개
-      <br>D-7
+
+      <img src="../../assets/plus.png"/>  
+          
+      <img src="../../assets/carrot.png"/>
+      <img src="../../assets/remove.png"/>
+      
+      <!-- 
+        이미지 경로찾는법.
+        + - 버튼 위치
+        <img v-bind:src="'../../assets/'+ imageName"/> 
+      -->
+      <h2>{{ingredientData}}</h2>      
 
     </div>
 </template>
 
 <script>
-    
+
+  //export default, new Vue 차이.
   export default {
     name: "ingredientElement",
     data() {
       return {
-        message : 'Hello',
-        imagePath: "../assets/carrot.png"
+        ingredientData :  '1개, D-7',
+        imageName: 'carrot.png'
+        
       }      
-    }
-    
+    },
+    computed: {
+      computedFunc: function () {
+
+      }
+    },
+    methods: {
+      addMethod: function () {
+        
+      }
+    }    
   }
 </script>
 
@@ -32,3 +51,4 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
   }
 </style>
+
