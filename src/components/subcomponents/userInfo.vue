@@ -13,6 +13,10 @@
     name: "userInfo",
     data() {
       return {
+        mockAccount: {
+          username: "chlwltn",
+          password: "tmdwogud"
+        },
         input: {
           username: ""
         }
@@ -21,9 +25,10 @@
     methods: {
       login() {
         if(this.input.username != "") {
-          if(this.input.username == this.$parent.mockAccount.username
-            && this.input.password == this.$parent.mockAccount.password) {
-            //아이디, 비번 일치 시 로그인
+          if(this.input.username == this.mockAccount.username
+            && this.input.password == this.mockAccount.password) {
+            //아이디, 비번 일치 시 로그
+            alert("logined!");
           } else {
             console.log("The username and / or password is incorrect.");
           }

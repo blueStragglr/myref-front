@@ -4,16 +4,17 @@
         User Info
         <user-info/>
       </div>
-      <example/>
+        <recommendedReceipt/>
     </div>
 </template>
 
 <script>
   import userInfo from "./userInfo";
   import example from "./receiptModal";
+  import recommendedReceipt from "./recommendedReceipt";
   export default {
     name: "sidebar",
-    components: {userInfo, example}
+    components: {userInfo, recommendedReceipt}
   }
 </script>
 

@@ -1,22 +1,26 @@
 <template>
     <div class="ingredient-item">
-      123
-      <div v-for="item in items">
-        {{ item.message }}
+      <div class="ingredient-data">
+      {{name}}
       </div>
+
+      <div class="ingredient-data">
+      {{amount}}{{unit}}
+      </div>
+
+      <div class="ingredient-data">
+      {{expiaryDate}}
+      </div>
+
     </div>
 </template>
 
 <script>
   export default {
     name: "ingredientElement",
+    props: ['name', 'amount', 'unit', 'expiaryDate'],
     data() {
       return {
-        items: [
-          { name: 'a' },
-          { amount: 'b' },
-          { expiaryDate: 'c' }
-        ]
       }
     },
     methods: {
@@ -41,5 +45,9 @@
     margin: 10px;
     height: 120px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  .ingredient-data {
+    padding: 10px;
   }
 </style>
