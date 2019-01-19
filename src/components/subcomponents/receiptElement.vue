@@ -1,11 +1,7 @@
 <template>
   <div class="recipe-item">
     <div class="recipe-data">
-      {{name}}
-    </div>
 
-    <div class="recipe-data">
-      {{recipe}}
     </div>
 
   </div>
@@ -14,14 +10,15 @@
 <script>
   export default {
     name: "receiptElement",
-    props: ['name', 'recipe'],
+    props: [],
     data() {
       return {
+        
       }
     },
     methods: {
       openReceiptModal() {
-
+        
       }
     }
   }

@@ -3,18 +3,17 @@
     <div class="navbar">
       <img src ="../assets/fridge.png">우리집<b>냉장고</b>
     </div>
-    <ingredient/>
+    <Initcontents/>
     <sidebar/>
   </div>
 </template>
 
 <script>
-import Ingredient from "./subcomponents/mainContent";
 import Initcontents from "./subcomponents/initPage";
 import Sidebar from "./subcomponents/sidebar";
 export default {
   name: 'HelloWorld',
-  components: {Sidebar, Ingredient, Initcontents},
+  components: {Sidebar, Initcontents},
   data () {
 
     // const ingredientExample = [{'소고기', '육류'}];

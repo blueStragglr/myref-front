@@ -4,7 +4,7 @@
       <!-- <i class="fa fa-refresh" v-on:click="refresh()"></i> refresh icon 넣기 -->
       <input type="text" name="username" v-model="input.username" placeholder="User name"/>
       <input type="password" name="password" v-model="input.password" placeholder="Password"/>
-      <button type="button" v-on:click="login()">Login</button>
+      <button type="button" class ="btn" v-on:click="login()">Login</button>
     </div>
 </template>
 
@@ -29,7 +29,7 @@
             && this.input.password == this.mockAccount.password) {
             //아이디, 비번 일치 시 로그
             alert("logined!");
-          } else {
+            } else {
             console.log("The username and / or password is incorrect.");
           }
         } else {
@@ -53,4 +53,19 @@
     margin-top: 10px ;
     text-align: left;
   }
+
+  .btn {
+    display: inline-block;
+    background: #1fb5bf;
+    border: 1px solid darken(#1fb5bf, 5%);
+    padding: .5em 2em;
+    color: white;
+    margin-right: .5em;
+    box-shadow: inset 0px 1px 0px fadeout(white, 80%); 
+  }
+  
+
+
+
+  
 </style>
