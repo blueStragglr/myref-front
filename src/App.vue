@@ -43,13 +43,17 @@ export default {
   *{
     box-sizing: border-box;
   }
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-  body{
+  @import url('//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css');
+
+  body { 
     margin: 0;
   }
+  #app {
+    font-size: 20px;
+    font-family: 'Iropke Batang', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+
 </style>

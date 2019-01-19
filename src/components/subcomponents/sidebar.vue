@@ -10,7 +10,6 @@
         </button>
         {{recipeId}}
         <recommendedReceipt/>
-
       </div>
     </div>
 </template>
@@ -28,6 +27,7 @@
         this.$modal.show('receiptModal', {
           recipeId: this.key,
           recipeKoName: this.recipe_nm
+
         });
       }
     }

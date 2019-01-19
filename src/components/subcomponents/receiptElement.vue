@@ -1,5 +1,8 @@
 <template>
   <div class="recipe-item">
+    <div class="recipe-data">
+
+    </div>
   </div>
 </template>
 
@@ -20,7 +23,6 @@
       // }
     },
     methods: {
-
     }
   }
 </script>

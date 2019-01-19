@@ -4,10 +4,11 @@
       <ingredient-element
         v-for="item in ingredients"
         v-bind:key="item.id"
+        v-bind:food_id="item.id"
         v-bind:name="item.name"
-        v-bind:amount="item.count"
+        v-bind:amount="item.amount"
         v-bind:unit="item.unit"
-        v-bind:expiryDate="item.expiray_date"
+        v-bind:expiryDate="item.expiry_date"
       />
     </div>
   </div>
@@ -20,7 +21,6 @@
     components: {IngredientElement},
     methods: {
       checkItem(item) {
-        console.log(item)
       }
     },
     data() {
@@ -29,9 +29,7 @@
       this.$http.get(`${baseURI}/nzg/main/2`)
         .then((result) =>{
           this.ingredients = result.data;
-          // console.log(ingredients[0].count);
         });
-      console.log(ingredients);
       return {
         ingredients,
       }
