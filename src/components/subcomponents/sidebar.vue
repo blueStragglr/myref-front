@@ -1,12 +1,20 @@
 <template>
     <div class="sidebar">
-      123
+      <div id="login-wrap">
+        User Info
+        <user-info/>
+      </div>
+        <recommendedReceipt/>
     </div>
 </template>
 
 <script>
+  import userInfo from "./userInfo";
+  import example from "./receiptModal";
+  import recommendedReceipt from "./recommendedReceipt";
   export default {
-    name: "sidebar"
+    name: "sidebar",
+    components: {userInfo, recommendedReceipt}
   }
 </script>
 
@@ -21,5 +29,8 @@
   .sidebar{
     flex: 1 1 100%;
   }
+}
+#login-wrap {
+  display: inline;
 }
 </style>
