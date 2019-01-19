@@ -1,6 +1,5 @@
 <template>
     <div id="login">
-      <div>Login</div>
       <!-- <i class="fa fa-refresh" v-on:click="refresh()"></i> refresh icon 넣기 -->
       <input type="text" name="username" v-model="input.username" placeholder="User name"/>
       <input type="password" name="password" v-model="input.password" placeholder="Password"/>
@@ -49,19 +48,23 @@
     width: auto;
     border: 1px #CCCCCC;
     background-color: #FFFFFF;
-    margin: auto;
-    margin-top: 10px ;
-    text-align: left;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  #login > input{
+    width: 150px;
+    padding: 4px;
   }
 
   .btn {
-    display: inline-block;
-    background: #1fb5bf;
-    border: 1px solid darken(#1fb5bf, 5%);
-    padding: .5em 2em;
-    color: white;
-    margin-right: .5em;
-    box-shadow: inset 0px 1px 0px fadeout(white, 80%); 
+    background-color: #269b74;
+    border: none;
+    width: 150px;
+    font-size: 12px;
+    padding: 5px 20px;
+    margin-top: 8px;
+    color: #ffffff;
   }
   
 

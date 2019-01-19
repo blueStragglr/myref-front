@@ -1,10 +1,11 @@
 <template>
     <div class="ingredient-item">
 
-      <img :src="getImgUrl(name)">
+      <img class="ingredient-img" :src="getImgUrl(name)">
       <br/>
-      <span @click=modifyAmount>{{amount}}</span> <span @click=editUnit>{{unit}}</span><br/>
-      <span @click=editExpDate>D-{{days_between()}}</span>
+      <span class="amount" @click=modifyAmount>{{amount}}</span>
+      <span class="unit" @click=editUnit>{{unit}}</span><br/>
+      <div class="days-between" @click=editExpDate>D-{{days_between()}}</div>
     </div>
 </template>
 <script>
@@ -102,14 +103,45 @@
 <style scoped>
   .ingredient-item {
     flex: 0 1 calc(100% / 4 - 20px);
-    border: 0px solid #e9e9e9;
+    border: 1px solid #eaeaea;
+    border-radius: 3px;
     margin: 10px;
     height: 120px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
     text-align: center;
+    padding: 10px;
+  }
+
+  .days-between{
+    border-top: 1px solid #eaeaea;
+    color: #cc2c2d;
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .ingredient-img{
+    width: 48px;
+    height: auto;
   }
   .ingredient-data {
     padding: 10px;
   }
 
+  .unit,
+  .amount{
+    opacity: 0.6;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .unit:hover,
+  .amount:hover{
+    opacity: 1;
+  }
+
+  .amount{
+
+  }
+  .unit{
+
+  }
 </style>
