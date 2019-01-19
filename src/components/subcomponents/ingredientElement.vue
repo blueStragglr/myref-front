@@ -19,8 +19,8 @@
 
 <script>
 
-  //export default, new Vue 차이.
   export default {
+    // 컴포넌트 내용 정의
     name: "ingredientElement",
     data() {
       return {
@@ -32,12 +32,20 @@
     computed: {
       computedFunc: function () {
 
-      }
-    },
     methods: {
-      addMethod: function () {
-
+      edit(data) {
+        return data;
+      },
+      confirm() {
+        return;
+      },
+      delete() {
+        return;
       }
+
+    },
+    data: function() {
+          return data;
     }
   }
 
