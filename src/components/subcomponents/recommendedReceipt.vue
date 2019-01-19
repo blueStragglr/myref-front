@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-wrap">
-    <!-- <receiptElement
+    <receiptElement
         v-for="recipe in recipes"
         v-bind:key="recipe.recipe_id"
         v-bind:recipe_nm="recipe.recipe_nm"
@@ -9,7 +9,7 @@
         v-bind:sumry="recipe.sumry"
         v-bind:img_url="recipe.img_url"
         v-bind:nation_nm="recipe.nation_nm"
-    /> -->
+    />
   </div>
 </template>
 
@@ -26,8 +26,9 @@
             this.recipes = result.data;
             console.log(this.recipes);
           });
-     return recipes;
-
+     return {
+       recipes;
+     }
     }
   }
 </script>

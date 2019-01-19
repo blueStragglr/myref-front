@@ -5,24 +5,29 @@
         <user-info/>
       </div>
       <div>
-        <button @click="openModal">
+        <button @click="openModal()">
           modal
         </button>
+        {{recipeId}}
+        <recommendedReceipt/>
       </div>
     </div>
 </template>
 
 <script>
   import userInfo from "./userInfo";
-  import recipe from "./receiptModal";
+  import recommendedReceipt from "./recommendedReceipt";
+
   export default {
     name: "sidebar",
-    props: [ 'ingredient' ],
-    components: { userInfo },
+    props: [ 'recipeId' ],
+    components: { userInfo,recommendedReceipt },
     methods: {
       openModal() {
         this.$modal.show('receiptModal', {
-          ingredient: this.ingredient
+          recipeId: this.key,
+          recipeKoName: this.recipe_nm
+
         });
       }
     }
