@@ -1,27 +1,17 @@
 <template>
     <div class="ingredient-item">
-
-
-      <img src="../../assets/plus.png"/>
-
-      <img src="../../assets/carrot.png"/>
-      <img src="../../assets/remove.png"/>
-
-      <!--
-        이미지 경로찾는법.
-        + - 버튼 위치
-        <img v-bind:src="'../../assets/'+ imageName"/>
-      -->
-      <h2>{{ingredientData}}</h2>
-
+      {{name}}<br/>
+      {{amount}}<br/>
+      {{unit}}<br/>
+      {{expiryDate}}
     </div>
 </template>
-
 <script>
 
   export default {
     // 컴포넌트 내용 정의
     name: "ingredientElement",
+    props: ['name', 'amount', 'unit', 'expiryDate'],
     data() {
       return {
         ingredientData :  '1개, D-7',
@@ -31,21 +21,18 @@
     },
     computed: {
       computedFunc: function () {
-
+      }
+    },
     methods: {
       edit(data) {
         return data;
       },
       confirm() {
-        return;
+        return 0;
       },
       delete() {
-        return;
+        return 0;
       }
-
-    },
-    data: function() {
-          return data;
     }
   }
 

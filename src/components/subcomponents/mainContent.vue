@@ -2,13 +2,13 @@
   <div class="main-contents">
     <div class="ingredient-wrap">
       <ingredient-element
-        v-for="item in items"
-        v-bind:key="item[0]"
-        v-bind:name="item[1]"
-        v-bind:amount="item[2]"
-        v-bind:unit="item[3]"
-        v-bind:expiaryDate="item[4]"
-        />
+        v-for="item in ingredients"
+        v-bind:key="item.id"
+        v-bind:name="item.name"
+        v-bind:amount="item.count"
+        v-bind:unit="item.unit"
+        v-bind:expiryDate="item.expiray_date"
+      />
     </div>
   </div>
 </template>
@@ -24,13 +24,17 @@
       }
     },
     data() {
+      const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+      let ingredients;
+      this.$http.get(`${baseURI}/nzg/main/2`)
+        .then((result) =>{
+          // console.log(result.data[0]);
+          this.ingredients = result.data;
+          // console.log(ingredients[0].count);
+        });
+      console.log(ingredients);
       return {
-        items: [
-           [0, '계란','10', '알', '2019-01-30'],
-           [1, '우유','1', 'L', '2019-01-28'],
-           [2, '계란','10', '알', '2019-01-30'],
-           [3, '계란','10', '알', '2019-01-30']
-        ]
+        ingredients,
       }
     }
   }
