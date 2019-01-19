@@ -4,17 +4,28 @@
         User Info
         <user-info/>
       </div>
-        <recommendedReceipt/>
+      <div>
+        <button @click="openModal">
+          modal
+        </button>
+      </div>
     </div>
 </template>
 
 <script>
   import userInfo from "./userInfo";
-  import example from "./receiptModal";
-  import recommendedReceipt from "./recommendedReceipt";
+  import recipe from "./receiptModal";
   export default {
     name: "sidebar",
-    components: {userInfo, recommendedReceipt}
+    props: [ 'ingredient' ],
+    components: { userInfo },
+    methods: {
+      openModal() {
+        this.$modal.show('receiptModal', {
+          ingredient: this.ingredient
+        });
+      }
+    }
   }
 </script>
 
