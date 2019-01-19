@@ -27,7 +27,7 @@
             console.log(this.recipes);
           });
      return {
-       recipes;
+       recipes
      }
     }
   }

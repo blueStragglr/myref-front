@@ -18,9 +18,9 @@
       //     this.recipes = result;
       //     console.log(result);
       //   });
-      // return {
-      //   recipes,
-      // }
+      return {
+
+      }
     },
     methods: {
     }

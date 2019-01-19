@@ -10,7 +10,6 @@
 <script>
 
 
-
   export default {
     // 컴포넌트 내용 정의
     name: "ingredientElement",
@@ -49,12 +48,12 @@
       editUnit() {
         const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
         const url = `${baseURI}:8000/nzg/2/food/${this.food_id}/unit`;
-        var redata = prompt("fill unit", "unit");
+        let redata = prompt("fill unit", "unit");
         this.$http.post(url, 
           {unit: redata})
           .then(function(res){
-            console.log(res);
-            console.log(redata);
+            // console.log(res);
+            // console.log(redata);
         });
       },
       editExpDate() {
@@ -64,8 +63,8 @@
         this.$http.post(url, 
           {expiry_date: redata})
           .then(function(res){
-            console.log(res);
-            console.log(redata);
+            // console.log(res);
+            // console.log(redata);
         });
       },
       addIngredient() {
@@ -80,7 +79,7 @@
             unit: redata
           })
           .then(function(res){
-            console.log(res);
+            // console.log(res);
         });
       },
       removeIngredient() {
@@ -94,8 +93,7 @@
         var redata = prompt("fill amount", "amount");
         const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
         this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`);
-      },
-      
+      }
     }
   }
 

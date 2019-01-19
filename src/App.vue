@@ -50,7 +50,7 @@ export default {
   }
   #app {
     font-size: 20px;
-    font-family: 'Iropke Batang', serif;
+    /*font-family: 'Iropke Batang', serif;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
