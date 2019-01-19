@@ -28,7 +28,6 @@
       let ingredients;
       this.$http.get(`${baseURI}/nzg/main/2`)
         .then((result) =>{
-          // console.log(result.data[0]);
           this.ingredients = result.data;
           // console.log(ingredients[0].count);
         });

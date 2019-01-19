@@ -1,12 +1,41 @@
 <template>
   <div id="app">
     <router-view/>
+    <modal name="receiptModal" @before-open="beforeOpen" :width="300" :height="300">
+      <p>{{ ingredient }}</p>
+      <p>{{ recipe }}</p>
+      <p>{{ recipeKoName }}</p>
+      <button @click="closeModal">
+        닫기
+      </button>
+    </modal>
   </div>
 </template>
 
 <script>
+import receiptElement from "./components/subcomponents/recommendedReceipt";
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { receiptElement },
+  props: ['recipeId', 'recipeKoName'],
+  data () {
+    let ingredient, recipe, koName;
+    return {
+      ingredient,
+      recipe,
+      koName
+    }
+  },
+  methods: {
+    beforeOpen(event) {
+      this.recipe = event.params.recipeId;
+      console.log(event);
+    },
+    closeModal() {
+      this.$modal.hide('receiptModal')
+    }
+  }
 }
 </script>
 

@@ -1,11 +1,15 @@
 <template>
   <div class="recipe-wrap">
     <receiptElement
-      v-for="recipe in recipes"
-      v-bind:key="recipe[0]"
-      v-bind:name="recipe[1]"
-      v-bind:recipe="recipe[2]"
-      />
+        v-for="recipe in recipes"
+        v-bind:key="recipe.recipe_id"
+        v-bind:recipe_nm="recipe.recipe_nm"
+        v-bind:recipe_ingredients="recipe.recipe_ingredients"
+        v-bind:irdnt_nm="recipe.irdnt_nm"
+        v-bind:sumry="recipe.sumry"
+        v-bind:img_url="recipe.img_url"
+        v-bind:nation_nm="recipe.nation_nm"
+    />
   </div>
 </template>
 
@@ -15,19 +19,17 @@
     name: "recommendedReceipt",
     components: {receiptElement},
     data() {
-      return {
-        recipes: [
-          [0, '계란', '계란 레시피'],
-          [1, '소고기', '소고기 레시피'],
-          [2, '당근', '당근 레시피'],
-          [3, '고구마', '고구마 레시피']
-        ]
-      }
-    },
-    methods: {
-      requestReceiptList() {
+      const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+        let recipes;
+        this.$http.get(`${baseURI}/nzg/recipe/search/계란`)
+        .then((result) =>{
+            this.recipes = result.data;
+            console.log(this.recipes);
+          });
+     return {
+       recipes;
+     }
 
-      }
     }
   }
 </script>
