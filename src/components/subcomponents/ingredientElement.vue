@@ -3,11 +3,8 @@
 
       <img :src="getImgUrl(name)">
       <br/>
-      <span @click=computedFunc>{{amount}}</span> <span @click=editUnit>{{unit}}</span><br/>
-      D-{{days_between()}}
-      
-
-
+      <span @click=modifyAmount>{{amount}}</span> <span @click=editUnit>{{unit}}</span><br/>
+      <span @click=editExpDate>D-{{days_between()}}</span>
     </div>
 </template>
 <script>
@@ -45,27 +42,55 @@
         return d_Day;
 
       },
-      editUnit() {
-        const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
-        const url = `${baseURI}/nzg/2/food/${this.food_id}/unit`;
-        var redata = prompt("fill unit", "unit");
-        this.$http.post(url, 
-          {unit: redata})
-          .then(function(res){
-          console.log(redata);
-        });
-      },
-      confirm() {
-        return 0;
-      },
       getImgUrl(name) {
         var images = require.context('../../assets/', false, /\.png$/)
         return images('./' + name + ".png")
       },
-      delete() {
-        return 0;
+      editUnit() {
+        const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+        const url = `${baseURI}:8000/nzg/2/food/${this.food_id}/unit`;
+        var redata = prompt("fill unit", "unit");
+        this.$http.post(url, 
+          {unit: redata})
+          .then(function(res){
+            console.log(res);
+            console.log(redata);
+        });
       },
-      computedFunc() {
+      editExpDate() {
+        const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+        const url = `${baseURI}:8000/nzg/2/food/created_at/${this.food_id}`;
+        var redata = prompt("YYYY-MM-DD", "YYYY-MM-DD");
+        this.$http.post(url, 
+          {expiry_date: redata})
+          .then(function(res){
+            console.log(res);
+            console.log(redata);
+        });
+      },
+      addIngredient() {
+        const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+        const url = `${baseURI}/nzg/2/food/added`;
+        var redata = prompt("YYYY-MM-DD", "YYYY-MM-DD");
+        this.$http.post(url, 
+          {
+            name: redata,
+            count: redata,
+            created_at: redata,
+            unit: redata
+          })
+          .then(function(res){
+            console.log(res);
+        });
+      },
+      removeIngredient() {
+        const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+        const url = `${baseURI}/nzg/2/food/delete/${this.food_id}`;
+        var redata = prompt("submit Food-id", "food-id");
+        this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`);
+      },
+
+      modifyAmount() {
         var redata = prompt("fill amount", "amount");
         const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
         this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`);
