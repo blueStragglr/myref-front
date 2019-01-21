@@ -10,6 +10,7 @@ Vue.use(VModal);
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

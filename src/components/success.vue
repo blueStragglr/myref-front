@@ -9,11 +9,10 @@
 </template>
 
 <script>
-import Initcontents from "./subcomponents/initPage";
 import Sidebar from "./subcomponents/sidebar";
 export default {
   name: 'HelloWorld',
-  components: {Sidebar, Initcontents},
+  components: {Sidebar},
   data () {
 
     // const ingredientExample = [{'소고기', '육류'}];

@@ -10,28 +10,48 @@
         v-bind:unit="item.unit"
         v-bind:expiryDate="item.expiry_date"
       />
+      <init-page/>
+      <deep-data
+        v-for="item in detectedDatas"
+        v-bind:key="item.id"
+        v-bind:food_id="item.id"
+        v-bind:name="item.name"
+        v-bind:amount="item.amount"
+        v-bind:unit="item.unit"
+        v-bind:expiryDate="item.expiry_date"/>
     </div>
   </div>
 </template>
 
 <script>
   import IngredientElement from "./ingredientElement";
+  import initPage from "./initPage";
+  import deepData from "./deepData";
+
+
   export default {
     name: "mainContent",
-    components: {IngredientElement},
+    components: {IngredientElement, initPage, deepData},
     methods: {
       checkItem(item) {
       }
     },
     data() {
-      const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+      const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
       let ingredients;
+      let detectedDatas;
       this.$http.get(`${baseURI}/nzg/main/2`)
         .then((result) =>{
           this.ingredients = result.data;
+          console.log(result);
+          this.$http.get(`${baseURI}/nzg/main/2/food_deep`)
+          .then((res) =>{
+            this.detectedDatas = res.data;
+            console.log(res);
+          })
         });
       return {
-        ingredients,
+        ingredients, detectedDatas
       }
     }
   }

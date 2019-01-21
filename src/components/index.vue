@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="navbar">
-      <img src ="../assets/fridge.png">우리집<b>냉장고</b>
+      <img src ="../assets/logo.png">
+
+
+
     </div>
     <ingredient/>
     <sidebar/>
@@ -10,11 +13,11 @@
 
 <script>
 import Ingredient from "./subcomponents/mainContent";
-import Initcontents from "./subcomponents/initPage";
 import Sidebar from "./subcomponents/sidebar";
 export default {
   name: 'HelloWorld',
-  components: {Sidebar, Ingredient, Initcontents},
+  components: {Sidebar, Ingredient},
+
   data () {
 
     // const ingredientExample = [{'소고기', '육류'}];
@@ -22,6 +25,7 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   }
+
 }
 </script>
 
@@ -41,7 +45,15 @@ export default {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
   padding: 20px;
   flex: 1 1 100%;
-  text-align: left;
+  text-align: center;
+}
+
+.navbar>img{
+  height: 60px;
+}
+
+.good{
+  height: 30px;
 }
 
 </style>
