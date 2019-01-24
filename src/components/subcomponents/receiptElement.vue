@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-item">
-    <div class="recipe-name">
+    <div class="recipe-name" v-on:click.self="openModal()">
       {{recipe_nm}}
     </div>
       <!--{{recipe_ingredients}}-->
@@ -20,8 +20,8 @@
       'irdnt_nm',
       'sumry',
       'img_url',
-      'nation_nm'
-
+      'nation_nm',
+      'cook_t'
     ],
     data() {
       // const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
@@ -36,6 +36,17 @@
       }
     },
     methods: {
+      openModal() {
+        this.$modal.show('receiptModal', {
+          recipeKoName: this.recipe_nm,
+          recipeIngredients: this.recipe_ingredients,
+          recipeSumry: this.sumry,
+          imgs: this.img_url,
+          nation: this.nation_nm,
+          cook_t: this.cook_t,
+          key: this.key
+        });
+      }
     }
   }
 </script>

@@ -5,14 +5,12 @@
       <user-info/>
     </div>
     <div class="recipe">
-      <div class="recipe-label">
+        <img :src="getImg()" @click=reload()>
+        <div class="recipe-label">
         <span>추천 레시피</span>
+    
       </div>
       <div class="recipe-scroll">
-      <!--<button @click="openModal()">-->
-      <!--modal-->
-      <!--</button>-->
-      <!--{{recipeId}}-->
         <recommendedReceipt/>
       </div>
     </div>
@@ -23,17 +21,28 @@
   import userInfo from "./userInfo";
   import recommendedReceipt from "./recommendedReceipt";
 
+  import receiptElement from "./receiptElement";
+
   export default {
     name: "sidebar",
-    props: ['recipeId'],
-    components: {userInfo, recommendedReceipt},
+    props: [
+      'receiptElement',
+      'recipe_nm',
+      'recipe_ingredients',
+      'irdnt_nm',
+      'sumry',
+      'img_url',
+      'nation_nm'
+    ],
+    components: {userInfo, recommendedReceipt, receiptElement},
     methods: {
-      openModal() {
-        this.$modal.show('receiptModal', {
-          recipeId: this.key,
-          recipeKoName: this.recipe_nm
 
-        });
+      getImg() {
+          var images = require.context('../../assets/', false, /\.png$/)
+          return images('./' + "refresh-button" + ".png")
+      },
+      reload() {
+        this.$router.go()
       }
     }
   }

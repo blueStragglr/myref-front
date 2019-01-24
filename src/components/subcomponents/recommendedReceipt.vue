@@ -9,6 +9,7 @@
         v-bind:sumry="recipe.sumry"
         v-bind:img_url="recipe.img_url"
         v-bind:nation_nm="recipe.nation_nm"
+        v-bind:cook_t="recipe.cooking_time"
     />
 
   </div>
@@ -20,12 +21,12 @@
     name: "recommendedReceipt",
     components: {receiptElement},
     data() {
-      const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
+      const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
         let recipes;
-        this.$http.get(`${baseURI}/nzg/recipe/search/계란`)
+        this.$http.get(`${baseURI}/nzg/2/recipe/recommand`)
         .then((result) =>{
             this.recipes = result.data;
-            console.log(this.recipes);
+            console.log(this.result);
           });
      return {
        recipes
