@@ -1,9 +1,8 @@
 <template>
     <div id="login">
       <!-- <i class="fa fa-refresh" v-on:click="refresh()"></i> refresh icon 넣기 -->
-      <input type="text" name="username" v-model="input.username" placeholder="User name"/>
-      <input type="password" name="password" v-model="input.password" placeholder="Password"/>
-      <button type="button" class ="btn" v-on:click="login()">Login</button>
+      <img src="../../assets/user.png">
+      <button type="button" class ="btn" v-on:click="logout()">logout</button>
     </div>
 </template>
 
@@ -22,18 +21,8 @@
       }
     },
     methods: {
-      login() {
-        if(this.input.username != "") {
-          if(this.input.username == this.mockAccount.username
-            && this.input.password == this.mockAccount.password) {
-            //아이디, 비번 일치 시 로그
-            alert("logined!");
-            } else {
-            console.log("The username and / or password is incorrect.");
-          }
-        } else {
-          console.log("Please enter username and password.");
-        }
+      logout() {
+            alert("로그아웃되었습니다.");
       },
       refresh() {
 
