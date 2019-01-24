@@ -2,12 +2,6 @@
   <div class="container">
     <div class="navbar">
       <img src ="../assets/logo.png">
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 2e8a52f16e56fc17667d4f63137c904d5d9adfb2
     </div>
     <ingredient/>
     <sidebar/>

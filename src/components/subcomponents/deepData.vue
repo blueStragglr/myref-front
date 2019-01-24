@@ -5,7 +5,11 @@
       <br/>
       <span class="amount">{{amount}}</span>
       <span class="unit">{{unit}}</span><br/>
-      <div class="days-between">100</div>
+      <div class="commit-button">
+        <button>예</button>
+        <div>&nbsp;</div>
+        <button>아니오</button>
+      </div>
     
   </div>
 
@@ -54,9 +58,27 @@
     padding: 10px;
   }
 
-  .days-between{
+  .commit-button>button:hover{
+    opacity: 1;
+  }
+  .commit-button>button{
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    width: 45%;
+    opacity: .6;
+    cursor: pointer
+  }
+  .commit-button>div{
+    display: inline-block;
+    width: 1px;
+    margin-top: 2px;
+    background-color: #808080;
+  }
+
+  .commit-button{
     border-top: 1px solid #eaeaea;
-    color: #cc2c2d;
     font-size: 14px;
     padding: 5px;
   }

@@ -1,11 +1,9 @@
 <template>
     <div class="ingredient-item">
-
-<<<<<<< HEAD
+      <button @click=delete_data  class="delete-button">
+        <img src="../../assets/delete.png">
+      </button>
       <img class="ingredient-img" :src="getImgUrl(name)">
-=======
-      <img class="ingredient-img" :src="getImgUrl(name)" @click=delete_data>
->>>>>>> 2e8a52f16e56fc17667d4f63137c904d5d9adfb2
       <br/>
       <span class="amount" @click=modifyAmount>{{amount}}</span>
       <span class="unit" @click=editUnit>{{unit}}</span><br/>
@@ -64,6 +62,9 @@
             // console.log(res);
             // console.log(redata);
         });
+        this.$parent.loadData()
+
+
       },
       editExpDate() {
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
@@ -116,6 +117,19 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
     text-align: center;
     padding: 10px;
+    position: relative;
+  }
+
+  .delete-button>img{
+    width: 18px;
+  }
+  .delete-button{
+    background-color: transparent;
+    border: none;
+    padding: 3px;
+    position: absolute;
+    top: 6px;
+    right: 6px;
   }
 
   .days-between{
@@ -128,12 +142,9 @@
   .ingredient-img{
     width: 48px;
     height: auto;
-    opacity:0.6;
+    margin-left: 6px;
   }
-  
-  .ingredient-img:hover{
-   opacity: 1.0;
-  }
+
   .ingredient-data {
     padding: 10px;
   }

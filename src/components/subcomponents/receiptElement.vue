@@ -1,5 +1,5 @@
 <template>
-  <div class="recipe-item">
+  <div class="recipe-item" >
     <div class="recipe-name" v-on:click.self="openModal()">
       {{recipe_nm}}
     </div>

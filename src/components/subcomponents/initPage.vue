@@ -57,11 +57,14 @@
 
 
   .center{
-        vertical-align: middle;
+      vertical-align: middle;
   }
 
   .plus{
     opacity: 0.6;
+    width: 120px;
+    height: auto;
+    margin-top: -36px;
 
   }
 
