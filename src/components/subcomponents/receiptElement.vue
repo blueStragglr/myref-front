@@ -1,12 +1,9 @@
 <template>
-  <div class="recipe-item" >
+  <div class="recipe-item" v-on:click.self="openModal()">
     <div class="recipe-name" v-on:click.self="openModal()">
       {{recipe_nm}}
     </div>
-      <!--{{recipe_ingredients}}-->
-      {{irdnt_nm}}
-      <!--{{sumry}}-->
-    <img :src="img_url">
+    <img :src="img_url" v-on:click.self="openModal()">
       <!--{{nation_nm}}-->
   </div>
 </template>
@@ -15,24 +12,18 @@
   export default {
     name: "receiptElement",
     props: [
+      'recipe_id',
       'recipe_nm',
       'recipe_ingredients',
       'irdnt_nm',
       'sumry',
       'img_url',
       'nation_nm',
-      'cook_t'
+      'cook_t',
+      'spec_recipes'
     ],
     data() {
-      // const baseURI = 'http://ec2-13-125-237-47.ap-northeast-2.compute.amazonaws.com';
-      // let recipes;
-      // this.$http.get(`${baseURI}/nzg/search/나물비빔밥`)
-      //   .then((result) =>{
-      //     this.recipes = result;
-      //     console.log(result);
-      //   });
       return {
-
       }
     },
     methods: {
@@ -44,7 +35,8 @@
           imgs: this.img_url,
           nation: this.nation_nm,
           cook_t: this.cook_t,
-          key: this.key
+          recipe_id: this.recipe_id,
+          spec_recipes: this.img_url
         });
       }
     }

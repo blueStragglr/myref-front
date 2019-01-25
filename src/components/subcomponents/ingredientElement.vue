@@ -1,6 +1,6 @@
 <template>
     <div class="ingredient-item">
-      <button @click=delete_data  class="delete-button">
+      <button v-on:click="delete_data(); alert_delete();" class="delete-button">
         <img src="../../assets/delete.png">
       </button>
       <img class="ingredient-img" :src="getImgUrl(name)">
@@ -19,16 +19,17 @@
     props: ['name', 'amount', 'unit', 'expiryDate','food_id'],
     data() {
       return {
-
       }
     },
     computed: {
-
     },
     methods: {
       delete_data() {
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
         this.$http.get(`${baseURI}/nzg/2/deep/delete/${this.food_id}`);
+      },
+      alert_delete() {
+        alert("선택하신 재료가 삭제되었습니다.\n새로고침(F5)을 해주세요!")
       },
       days_between() {
         var date1 = new Date().toISOString().substr(0, 10).replace('T', ' ');

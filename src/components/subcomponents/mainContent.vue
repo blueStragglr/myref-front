@@ -63,11 +63,11 @@
       this.$http.get(`${baseURI}/nzg/main/2`)
         .then((result) => {
           this.ingredients = result.data;
-          console.log(result);
+          //console.log(result);
           this.$http.get(`${baseURI}/nzg/main/2/food_deep`)
             .then((res) => {
               this.detectedDatas = res.data;
-              console.log(res);
+              //console.log(res);
             })
         });
       return {

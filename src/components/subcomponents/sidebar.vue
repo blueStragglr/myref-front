@@ -8,7 +8,7 @@
         <img :src="getImg()" @click=reload()>
         <div class="recipe-label">
         <span>추천 레시피</span>
-    
+
       </div>
       <div class="recipe-scroll">
         <recommendedReceipt/>
