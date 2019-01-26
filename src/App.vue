@@ -34,7 +34,7 @@
           <input type="text" name="ingredientUnit" v-model="input.ingredientUnit" placeholder="단위(개/ml)"> <br/>
         </div>
         <div class="button-wrap">
-          <input class="modal-button" type="submit" value="추가하기" v-on:click="addIngredient(); closeSubmitModal();">
+          <input class="modal-button" type="submit" value="추가하기" v-on:click="addIngredient(); closeSubmitModal(); reload();">
           <button class="modal-button" @click="closeSubmitModal()">
             닫기
           </button>
@@ -61,6 +61,9 @@
       }
     },
     methods: {
+      reload() {
+        this.$router.go();
+      },
       beforeOpen(event) {
         this.ingredient = '';
         this.recipeName = event.params.recipeKoName;

@@ -1,14 +1,14 @@
 <template>
   <div class="ingredient-item">
     
-      <img class="ingredient-img" :src="getImgUrl(name)" @click=reload()>
+      <img class="ingredient-img" :src="getImgUrl(name)" >
       <br/>
       <span class="amount">{{amount}}</span>
       <span class="unit">{{unit}}</span><br/>
       <div class="commit-button">
-        <button>예</button>
+        <button @click=addDeepdata()>예</button>
         <div>&nbsp;</div>
-        <button>아니오</button>
+        <button @click=removeDeepdata()>아니오</button>
       </div>
     
   </div>
@@ -32,12 +32,22 @@
         var images = require.context('../../assets/', false, /\.png$/)
         return images('./' + name + ".png")
       },
-      reload() {
+      removeDeepdata() {
+        const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
+        let ingredients;
+                this.$http.get(`${baseURI}/nzg/2/deep/delete/${this.food_id}`)
+          .then((result) =>{
+              this.$router.go()
+          });
+        return {
+        }
+      },
+      addDeepdata() {
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
         let ingredients;
         this.$http.get(`${baseURI}/nzg/2/deep/add/${this.food_id}`)
           .then((result) =>{
-            console.log(result);
+            this.$router.go()
           });
         return {
         }

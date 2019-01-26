@@ -1,13 +1,14 @@
 <template>
     <div class="ingredient-item">
-      <button v-on:click="delete_data(); alert_delete();" class="delete-button">
+      <button v-on:click="delete_data(); reload();" class="delete-button">
         <img src="../../assets/delete.png">
       </button>
       <img class="ingredient-img" :src="getImgUrl(name)">
       <br/>
-      <span class="amount" @click=modifyAmount>{{amount}}</span>
-      <span class="unit" @click=editUnit>{{unit}}</span><br/>
-      <div class="days-between" @click=editExpDate>D-{{days_between()}}</div>
+      <span class="name">{{name}}</span>
+      <span class="amount" v-on:click="modifyAmount(); reload();">{{amount}}</span>
+      <span class="unit" v-on:click="modifyAmount(); reload();">{{unit}}</span><br/>
+      <div class="days-between" v-on:click="modifyAmount(); reload();">D-{{days_between()}}</div>
     </div>
 </template>
 <script>
@@ -24,6 +25,9 @@
     computed: {
     },
     methods: {
+      reload() {
+        this.$router.go();
+      },
       delete_data() {
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
         this.$http.get(`${baseURI}/nzg/2/deep/delete/${this.food_id}`);
@@ -60,8 +64,7 @@
         this.$http.post(url,
           {unit: redata})
           .then(function(res){
-            // console.log(res);
-            // console.log(redata);
+            this.reload();
         });
         this.$parent.loadData()
 
@@ -74,6 +77,7 @@
         this.$http.post(url,
           {expiry_date: redata})
           .then(function(res){
+            this.reload();
         });
       },
       addIngredient() {
@@ -88,20 +92,26 @@
             unit: redata
           })
           .then(function(res){
-            // console.log(res);
+            this.reload();
         });
       },
       removeIngredient() {
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
         const url = `${baseURI}/nzg/2/food/delete/${this.food_id}`;
         var redata = prompt("submit Food-id", "food-id");
-        this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`);
+        this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`)
+        .then(function(res){
+            this.reload();
+        });
       },
 
       modifyAmount() {
         var redata = prompt("fill amount", "amount");
         const baseURI = 'http://ec2-52-79-41-12.ap-northeast-2.compute.amazonaws.com';
-        this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`);
+        this.$http.get(`${baseURI}/nzg/2/food/amount/${this.food_id}/${redata}`)
+        .then(function(res){
+            this.reload();
+        });
       }
     }
   }
@@ -151,7 +161,8 @@
   }
 
   .unit,
-  .amount{
+  .amount,
+  .name{
     opacity: 0.6;
     font-size: 16px;
     cursor: pointer;
@@ -159,12 +170,5 @@
   .unit:hover,
   .amount:hover{
     opacity: 1;
-  }
-
-  .amount{
-
-  }
-  .unit{
-
   }
 </style>
